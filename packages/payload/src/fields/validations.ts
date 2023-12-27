@@ -27,10 +27,15 @@ import { isValidID } from '../utilities/isValidID'
 import { fieldAffectsData } from './config/types'
 
 export const text: Validate<unknown, unknown, TextField> = (
-  value: string,
-  { config, maxLength: fieldMaxLength, minLength, required, t },
+  value: string | string[],
+  { config, maxLength: fieldMaxLength, minLength, required, t, hasMany, maxRows, minRows },
 ) => {
   let maxLength: number
+
+  if (hasMany === true) {
+    const lengthValidationResult = validateArrayLength(value, { maxRows, minRows, required, t })
+    if (typeof lengthValidationResult === 'string') return lengthValidationResult
+  }
 
   if (typeof config?.defaultMaxTextLength === 'number') maxLength = config.defaultMaxTextLength
   if (typeof fieldMaxLength === 'number') maxLength = fieldMaxLength
