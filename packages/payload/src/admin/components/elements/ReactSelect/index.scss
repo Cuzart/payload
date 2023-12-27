@@ -29,6 +29,9 @@
   .rs__input {
     font-family: var(--font-body);
     width: 10px;
+    &[type='text'] {
+      height: auto !important;
+    }
   }
 
   .rs__menu {
