@@ -32,6 +32,9 @@ const Text: React.FC<Props> = (props) => {
     path: pathFromProps,
     required,
     validate = text,
+    hasMany,
+    maxRows,
+    minRows,
   } = props
 
   const path = pathFromProps || name
@@ -82,6 +85,10 @@ const Text: React.FC<Props> = (props) => {
       style={style}
       value={value}
       width={width}
+      setValue={setValue}
+      hasMany={hasMany}
+      maxRows={maxRows}
+      minRows={minRows}
     />
   )
 }
