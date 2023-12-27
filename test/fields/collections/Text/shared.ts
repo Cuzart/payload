@@ -10,4 +10,9 @@ export const textDoc: Partial<TextField> = {
 
 export const anotherTextDoc: Partial<TextField> = {
   text: 'Another text document',
+  beforeAndAfterInput: 'Before and after input',
+  hasMany: ['hello', 'world'],
+  localizedHasMany: ['hello', 'world'],
+  validatesHasMany: ['hello', 'world'],
+  withMinRows: ['hello', 'world'],
 }
